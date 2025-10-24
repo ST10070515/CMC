@@ -1,0 +1,111 @@
+﻿@model PROG6212_CMCS.Models.ViewModels.ProgrammeCoordinatorDashboardViewModel
+@* Set the model type at the top of the view *@
+
+<div class="container mt-4">
+    <h1>Programme Coordinator Dashboard</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2>Claims Awaiting Your Review (@Model.ClaimsForReview.Count)</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Claim ID</th>
+                        <th scope="col">Lecturer</th>
+                        <th scope="col">Date Submitted</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* REPLACING HARDCODED ROWS WITH DB DATA *@
+                    @foreach (var claim in Model.ClaimsForReview)
+                    {
+                        <tr>
+                            @*<td>@claim.ClaimID</td>
+                            <td>@claim.Lecturer.FirstName @claim.Lecturer.LastName</td>*@
+                            <td>@claim.SubmissionDate.ToShortDateString()</td>
+                            <td>@claim.ClaimAmount.ToString("C")</td>
+                            <td>
+                                <a href="@Url.Action("ApproveClaim", "ProgrammeCoordinator", new { id = claim.ClaimID })" class="btn btn-success btn-sm">Approve</a>
+                                <a href="@Url.Action("RejectClaim", "ProgrammeCoordinator", new { id = claim.ClaimID })" class="btn btn-danger btn-sm">Reject</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @if (!Model.ClaimsForReview.Any())
+            {
+                <p>No claims currently awaiting Programme Coordinator review.</p>
+            }
+        </div>
+    </div>
+    @* ... rest of the view content ... *@
+</div>
+
+@*model PROG6212_CMCS.Models.Claim  
+@* Views/ProgrammeCoordinator/Dashboard.cshtml *@
+@*{
+    ViewData["Title"] = "Programme Coordinator Dashboard";
+}
+
+<div class="container mt-4">
+    <h1>Programme Coordinator Dashboard</h1>
+
+    <!-- Pending Claims Section -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2>Pending Claims</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Claim ID</th>
+                        <th scope="col">Lecturer</th>
+                        <th scope="col">Date Submitted</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>John Doe</td>
+                        <td>2025-10-15</td>
+                        <td>$500</td>
+                        <td>
+                            <a href="@Url.Action("ApproveClaim", "ProgrammeCoordinator", new { id = "001" })" class="btn btn-success btn-sm">Approve</a>
+                            <a href="@Url.Action("RejectClaim", "ProgrammeCoordinator", new { id = "001" })" class="btn btn-danger btn-sm">Reject</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Jane Smith</td>
+                        <td>2025-10-14</td>
+                        <td>$300</td>
+                        <td>
+                            <a href="@Url.Action("ApproveClaim", "ProgrammeCoordinator", new { id = "002" })" class="btn btn-success btn-sm">Approve</a>
+                            <a href="@Url.Action("RejectClaim", "ProgrammeCoordinator", new { id = "002" })" class="btn btn-danger btn-sm">Reject</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-end gap-2">
+                <a href="@Url.Action("Logout", "Account")" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            console.log("Programme Coordinator Dashboard loaded");
+        });
+    </script>
+}*@

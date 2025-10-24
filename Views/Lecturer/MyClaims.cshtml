@@ -1,0 +1,60 @@
+﻿@* Views/Lecturer/MyClaims.cshtml *@
+@model PROG6212_CMCS.Models.Claim
+@{
+    ViewData["Title"] = "My Claims";
+}
+
+<div class="container mt-4">
+    <h1>My Claims</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Claim ID</th>
+                <th scope="col">Date Submitted</th>
+                <th scope="col">Course</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>2025-10-15</td>
+                <td>Mathematics 101</td>
+                <td>$500</td>
+                <td>Approved</td>
+                <td><a href="@Url.Action("ViewDetails", "Lecturer", new { id = "001" })" class="btn btn-info btn-sm">View Details</a></td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>2025-10-14</td>
+                <td>Physics 202</td>
+                <td>$300</td>
+                <td>Pending</td>
+                <td><a href="@Url.Action("ViewDetails", "Lecturer", new { id = "002" })" class="btn btn-info btn-sm">View Details</a></td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>2025-10-13</td>
+                <td>Computer Science 301</td>
+                <td>$450</td>
+                <td>Rejected</td>
+                <td><a href="@Url.Action("ViewDetails", "Lecturer", new { id = "003" })" class="btn btn-info btn-sm">View Details</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <a href="@Url.Action("Dashboard", "Lecturer")" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            console.log("My Claims page loaded");
+        });
+    </script>
+}

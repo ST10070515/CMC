@@ -1,0 +1,123 @@
+﻿@model PROG6212_CMCS.Models.ViewModels.DashboardData
+@{
+    ViewData["Title"] = "Academic Manager Dashboard";
+}
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Rejected Claims</h5>
+                    <p class="card-text display-4">@Model.rejectedClaims</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Approved Claims</h5>
+                    <p class="card-text display-4">@Model.approvedClaims</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Claims</h5>
+                    <p class="card-text display-4">@Model.pendingClaims</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Claims Table -->
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Recent Claims</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Claim ID</th>
+                        <th scope="col">Date Submitted</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @if (Model.claims != null)
+                    {
+                        @foreach (var claim in Model.claims)
+                        {
+                            <tr>
+                                <td>@claim.ClaimID</td>
+                                <td>@claim.SubmissionDate</td>
+                                <td>@claim.CourseName</td>
+                                <td>R @claim.ClaimAmount</td>
+
+                                @if (claim.ClaimStatus == ClaimStatus.PENDING)
+                                {
+                                    <td> Pending</td>
+                                }
+                                else if (claim.ClaimStatus == ClaimStatus.APPROVED)
+                                {
+                                    <td> Approved</td>
+                                }
+                                else if (claim.ClaimStatus == ClaimStatus.REJECTED)
+                                {
+                                    <td> Rejected</td>
+                                }
+
+                                <form asp-controller="AcademicManager" method="post">
+                                    <td>
+                                    <button 
+                                        asp-action="ApproveClaim"
+                                        asp-controller="AcademicManager"
+                                        asp-route-userId="@ViewBag.userId"
+                                        asp-route-claimId="@claim.ClaimID"
+                                        type="submit" 
+                                        class="btn btn-success"
+                                    > Approve</button>
+                                    <button 
+                                        asp-action="RejectClaim"
+                                        asp-controller="AcademicManager"
+                                        asp-route-userId="@ViewBag.userId"
+                                        asp-route-claimId="@claim.ClaimID"
+                                        type="submit" 
+                                        class="btn btn-danger"> Reject</button>
+                                    </td>
+                                </form>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-end gap-2">
+                <a href="@Url.Action("SubmitClaim", "Lecturer", new { userId = ViewBag.userId })" class="btn btn-primary">Submit Claim</a>
+                <a href="@Url.Action("Login", "Account", new { userId = ViewBag.userId })" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            console.log("Lecturer Dashboard loaded");
+        });
+    </script>
+}
+
+
+

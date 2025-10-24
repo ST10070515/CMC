@@ -1,0 +1,56 @@
+﻿@model PROG6212_CMCS.Models.Claim
+@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+<div class="container mt-4">
+    <h1>Submit Claim</h1>
+    <form asp-action="SubmitClaim" asp-route-userId="@ViewBag.userId" asp-controller="Lecturer" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="mb-3">
+                    <label asp-for="CourseName" class="form-label">Course</label>
+                    <input asp-for="CourseName" type="text" class="form-control" required/>
+                    <span asp-validation-for="CourseName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HoursWorked" class="form-label">Hours Worked</label>
+                    <input asp-for="HoursWorked" type="number" step="0.01" class="form-control" required min="0" />
+                    <span asp-validation-for="HoursWorked" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="HourlyRate" class="form-label">Hourly Rate (R)</label>
+                    <input asp-for="HourlyRate" type="number" step="0.01" class="form-control" required min="0" />
+                    <span asp-validation-for="HourlyRate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="AdditionalNotes" class="form-label">Additional Notes</label>
+                    <textarea asp-for="AdditionalNotes" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="AdditionalNotes" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <!--<label asp-for="Documents" class="form-label">Upload Supporting Documents</label>
+                    <input asp-for="Documents" type="file" class="form-control" accept=".pdf,.docx,.xlsx" multiple />
+                    <small class="form-text text-muted">Accepted formats: PDF, DOCX, XLSX. Max 10MB per file.</small>
+                    <span asp-validation-for="Documents" class="text-danger"></span>-->
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    <div class="row mt-3">
+        <div class="col-md-6">
+            <a href="@Url.Action("Dashboard", "Lecturer", new { userId = ViewBag.userId })" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            console.log("Submit Claim page loaded");
+        });
+    </script>
+}
