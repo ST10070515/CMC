@@ -1,6 +1,6 @@
 ﻿@model PROG6212_CMCS.Models.ViewModels.DashboardData
 @{
-    ViewData["Title"] = "Academic Manager Dashboard";
+    ViewData["Title"] = "Academic Manager";
 }
 
 <!-- Main Content -->
@@ -41,10 +41,11 @@
                 <thead>
                     <tr>
                         <th scope="col">Claim ID</th>
-                        <th scope="col">Date Submitted</th>
+                        <th scope="col">Lecturer</th>
                         <th scope="col">Course</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Documents</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -55,42 +56,56 @@
                         @foreach (var claim in Model.claims)
                         {
                             <tr>
-                                <td>@claim.ClaimID</td>
-                                <td>@claim.SubmissionDate</td>
-                                <td>@claim.CourseName</td>
-                                <td>R @claim.ClaimAmount</td>
+                                <td>@claim.claim.ClaimID</td>
+                                <td>@claim.user.FirstName @claim.user.LastName</td>
+                                <td>@claim.claim.CourseName</td>
+                                <td>R @claim.claim.ClaimAmount</td>
 
-                                @if (claim.ClaimStatus == ClaimStatus.PENDING)
+                                @if (claim.claim.ClaimStatus == ClaimStatus.PENDING)
                                 {
                                     <td> Pending</td>
                                 }
-                                else if (claim.ClaimStatus == ClaimStatus.APPROVED)
+                                else if (claim.claim.ClaimStatus == ClaimStatus.APPROVED)
                                 {
                                     <td> Approved</td>
                                 }
-                                else if (claim.ClaimStatus == ClaimStatus.REJECTED)
+                                else if (claim.claim.ClaimStatus == ClaimStatus.REJECTED)
                                 {
                                     <td> Rejected</td>
                                 }
 
+                                <td>
+                                    @if (claim.documents.Count() > 0)
+                                    {
+                                        @foreach (var doc in claim.documents)
+                                        {
+                                            <p><a href="@Url.Action("DownloadDocument", "Common", new { docId = doc.DocumentID })">@doc.FileName</a></p>
+                                        }
+                                    } else
+                                    {
+                                    <p>No documents</p>    
+                                    }
+                                </td>
+
                                 <form asp-controller="AcademicManager" method="post">
-                                    <td>
-                                    <button 
-                                        asp-action="ApproveClaim"
-                                        asp-controller="AcademicManager"
-                                        asp-route-userId="@ViewBag.userId"
-                                        asp-route-claimId="@claim.ClaimID"
-                                        type="submit" 
-                                        class="btn btn-success"
-                                    > Approve</button>
-                                    <button 
-                                        asp-action="RejectClaim"
-                                        asp-controller="AcademicManager"
-                                        asp-route-userId="@ViewBag.userId"
-                                        asp-route-claimId="@claim.ClaimID"
-                                        type="submit" 
-                                        class="btn btn-danger"> Reject</button>
-                                    </td>
+                                <td>
+                                    <button asp-action="ApproveClaim"
+                                            asp-controller="AcademicManager"
+                                            asp-route-userId="@ViewBag.userId"
+                                            asp-route-claimId="@claim.claim.ClaimID"
+                                            type="submit"
+                                            class="btn btn-success">
+                                        Approve
+                                    </button>
+                                    <button asp-action="RejectClaim"
+                                            asp-controller="AcademicManager"
+                                            asp-route-userId="@ViewBag.userId"
+                                            asp-route-claimId="@claim.claim.ClaimID"
+                                            type="submit"
+                                            class="btn btn-danger">
+                                        Reject
+                                    </button>
+                                </td>
                                 </form>
                             </tr>
                         }
@@ -109,7 +124,6 @@
         </div>
     </div>
 </div>
-
 
 
 

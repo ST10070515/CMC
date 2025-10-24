@@ -31,7 +31,7 @@ public class LecturerController : Controller
     }
 
     [HttpPost]
-    public IActionResult SubmitClaim(Claim model, [FromQuery] int userId)
+    public IActionResult SubmitClaim(Claim model, [FromQuery] int userId, List<IFormFile> ClaimFiles)
     {
         // Store the query param
         ViewBag.userId = userId;
@@ -40,7 +40,7 @@ public class LecturerController : Controller
         var claim = new Claim
         {
             UserID = userId,
-            CourseName=model.CourseName,
+            CourseName = model.CourseName,
             HoursWorked = model.HoursWorked,
             HourlyRate = model.HourlyRate,
             ClaimAmount = model.HoursWorked * model.HourlyRate,
@@ -51,8 +51,32 @@ public class LecturerController : Controller
         _context.Claims.Add(claim);
         _context.SaveChanges();
 
-        // Add a success message
+        // Get the claim ID
+        int newClaimId = _context.Claims.Where(u => u.UserID == userId).OrderBy(u=>u.ClaimID).Last().ClaimID;
 
+        // Process documents
+        foreach (var ClaimFile in ClaimFiles) {
+            if (ClaimFile != null && ClaimFile.Length > 0)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    ClaimFile.CopyTo(memoryStream);
+
+                    var document = new Document
+                    {
+                        FileName = ClaimFile.FileName,
+                        ContentType = ClaimFile.ContentType,
+                        FileData = memoryStream.ToArray(),
+                        ClaimID = newClaimId
+                    };
+
+                    _context.Documents.Add(document);
+                    _context.SaveChanges();
+                }
+            }
+        }
+
+        // Add a success message
         return View(model);
     }
 
@@ -64,6 +88,7 @@ public class LecturerController : Controller
          
         // Process the request
         List<Claim> claimListModel;
+        List<ClaimItem> claimItem = new List<ClaimItem>();
         DashboardData data = new DashboardData();
 
         // Get DB values for the dashboard for this user.
@@ -72,11 +97,24 @@ public class LecturerController : Controller
         if (iterClaims.Any())
         {
             claimListModel = iterClaims.ToList<Claim>();
-
             data.allClaims = claimListModel.Count();
             data.pendingClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.PENDING).Count();
             data.approvedClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.APPROVED).Count();
-            data.claims = claimListModel;
+
+            // Add all claims and data in view
+            foreach (var claim in claimListModel)
+            {
+                // Get all documents for the claim
+                List<Document> documents = _context.Documents.Where(c => c.ClaimID == claim.ClaimID).ToList();
+
+                // Get the user linked to the claim
+                User user = _context.MyUsers.Where(u => u.UserID == claim.UserID).First();
+
+                // Create the structure
+                claimItem.Add(new ClaimItem(claim, documents, user));
+            }
+
+            data.claims = claimItem;
         }
 
         // Populate the view model, and pass to teh view. 

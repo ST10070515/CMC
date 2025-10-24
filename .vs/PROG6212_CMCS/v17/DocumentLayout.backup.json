@@ -3,6 +3,41 @@
   "WorkspaceRootPath": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Migrations\\20251024125106_RemoteDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251024125106_RemoteDb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B56E7682-1F86-43D8-AB6C-8E3CE77A4C4C}|..\\Test\\Test.csproj|c:\\users\\tshia\\source\\repos\\test\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\controllers\\academicmanagercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:controllers\\academicmanagercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\controllers\\programmecoordinatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:controllers\\programmecoordinatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\controllers\\lecturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:controllers\\lecturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\models\\viewmodels\\programmecoordinatordashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:models\\viewmodels\\programmecoordinatordashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\models\\viewmodels\\dashboarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:models\\viewmodels\\dashboarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|c:\\users\\tshia\\source\\repos\\prog6212_cmcs\\views\\programmecoordinator\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E200DB23-5F48-4815-8395-3631F06C56D9}|PROG6212_CMCS.csproj|solutionrelative:views\\programmecoordinator\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -18,34 +53,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\AcademicManager\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\AcademicManager\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\AcademicManager\\Dashboard.cshtml",
-              "RelativeToolTip": "Views\\AcademicManager\\Dashboard.cshtml",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAkwHsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-24T07:21:40.956Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\ProgrammeCoordinator\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "Views\\ProgrammeCoordinator\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\ProgrammeCoordinator\\Dashboard.cshtml",
-              "RelativeToolTip": "Views\\ProgrammeCoordinator\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-24T07:15:15.74Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -53,6 +62,149 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20251024125106_RemoteDb.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Migrations\\20251024125106_RemoteDb.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251024125106_RemoteDb.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Migrations\\20251024125106_RemoteDb.cs",
+              "RelativeToolTip": "Migrations\\20251024125106_RemoteDb.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T12:51:07.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-24T12:32:14.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T12:32:13.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\Test\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\Test\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\Test\\UnitTest1.cs",
+              "RelativeToolTip": "..\\Test\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T12:20:52.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProgrammeCoordinatorDashboardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Models\\ViewModels\\ProgrammeCoordinatorDashboardViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\ProgrammeCoordinatorDashboardViewModel.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Models\\ViewModels\\ProgrammeCoordinatorDashboardViewModel.cs",
+              "RelativeToolTip": "Models\\ViewModels\\ProgrammeCoordinatorDashboardViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T12:12:39.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\ProgrammeCoordinator\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\ProgrammeCoordinator\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\ProgrammeCoordinator\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\ProgrammeCoordinator\\Dashboard.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADoAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T12:10:33.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\AcademicManager\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\AcademicManager\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Views\\AcademicManager\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\AcademicManager\\Dashboard.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T12:09:45.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProgrammeCoordinatorController.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Controllers\\ProgrammeCoordinatorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProgrammeCoordinatorController.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Controllers\\ProgrammeCoordinatorController.cs",
+              "RelativeToolTip": "Controllers\\ProgrammeCoordinatorController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T12:09:08.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AcademicManagerController.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Controllers\\AcademicManagerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AcademicManagerController.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Controllers\\AcademicManagerController.cs",
+              "RelativeToolTip": "Controllers\\AcademicManagerController.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAcwF8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T12:03:05.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DashboardData.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Models\\ViewModels\\DashboardData.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\DashboardData.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Models\\ViewModels\\DashboardData.cs",
+              "RelativeToolTip": "Models\\ViewModels\\DashboardData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T12:01:37.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LecturerController.cs",
+              "DocumentMoniker": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Controllers\\LecturerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LecturerController.cs",
+              "ToolTip": "C:\\Users\\tshia\\source\\repos\\PROG6212_CMCS\\Controllers\\LecturerController.cs",
+              "RelativeToolTip": "Controllers\\LecturerController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAcwG4AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T10:47:12.611Z",
+              "EditorCaption": ""
             }
           ]
         },

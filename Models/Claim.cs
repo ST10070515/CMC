@@ -32,7 +32,7 @@ namespace PROG6212_CMCS.Models
 
         public string CourseName { get; set; } = "";
         public ClaimStatus ClaimStatus { get; set; } = ClaimStatus.PENDING;
-        public string AdditionalNotes { get; set; } = "";
+        public string? AdditionalNotes { get; set; }
         public DateTime SubmissionDate { get; set; } = DateTime.Now;
         public DateTime LastUpdated { get; set; } = DateTime.Now;
 

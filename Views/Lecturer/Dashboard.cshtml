@@ -45,6 +45,7 @@
                         <th scope="col">Course</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Documents</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,22 +55,36 @@
                         @foreach (var claim in Model.claims)
                         {
                             <tr>
-                                <td>@claim.ClaimID</td>
-                                <td>@claim.SubmissionDate</td>
-                                <td>@claim.CourseName</td>
-                                <td>R @claim.ClaimAmount</td>
-                                
-                                @if (claim.ClaimStatus == ClaimStatus.PENDING)
+                                <td>@claim.claim.ClaimID</td>
+                                <td>@claim.claim.SubmissionDate</td>
+                                <td>@claim.claim.CourseName</td>
+                                <td>R @claim.claim.ClaimAmount</td>
+
+                                @if (claim.claim.ClaimStatus == ClaimStatus.PENDING)
                                 {
                                     <td> Pending</td>
                                 }
-                                else if (claim.ClaimStatus == ClaimStatus.APPROVED){
+                                else if (claim.claim.ClaimStatus == ClaimStatus.APPROVED){
                                     <td> Approved</td>
                                 }
-                                else if (claim.ClaimStatus == ClaimStatus.REJECTED)
+                                else if (claim.claim.ClaimStatus == ClaimStatus.REJECTED)
                                 {
                                     <td> Rejected</td>
                                 }
+                                  
+                                <td>
+                                    @if (claim.documents.Count() > 0)
+                                    {
+                                        @foreach (var doc in claim.documents)
+                                        {
+                                            <p><a href="@Url.Action("DownloadDocument", "Common", new { docId = doc.DocumentID })">@doc.FileName</a></p>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p>No documents</p>
+                                    }
+                                </td>
                             </tr>
                         }
                     }

@@ -64,17 +64,34 @@ public class AcademicManagerController : Controller
 
         // Process the request
         List<Claim> claimListModel;
+        List<ClaimItem> claimItem = new List<ClaimItem>();
         DashboardData data = new DashboardData();
 
         // Get DB values for the dashboard for this user.
         var iterClaims = _context.Claims;
-        claimListModel = iterClaims.ToList<Claim>();
 
-        data.allClaims = claimListModel.Count();
-        data.pendingClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.PENDING).Count();
-        data.approvedClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.APPROVED).Count();
-        data.rejectedClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.REJECTED).Count();
-        data.claims = claimListModel;
+        if (iterClaims.Any())
+        {
+            claimListModel = iterClaims.ToList<Claim>();
+            data.allClaims = claimListModel.Count();
+            data.pendingClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.PENDING).Count();
+            data.approvedClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.APPROVED).Count();
+
+            // Add all claims and data in view
+            foreach (var claim in claimListModel)
+            {
+                // Get all documents for the claim
+                List<Document> documents = _context.Documents.Where(c => c.ClaimID == claim.ClaimID).ToList();
+
+                // Get the user linked to the claim
+                User user = _context.MyUsers.Where(u => u.UserID == claim.UserID).First();
+
+                // Create the structure
+                claimItem.Add(new ClaimItem(claim, documents, user));
+            }
+
+            data.claims = claimItem;
+        }
 
         // Populate the view model, and pass to teh view. 
         return View(data);

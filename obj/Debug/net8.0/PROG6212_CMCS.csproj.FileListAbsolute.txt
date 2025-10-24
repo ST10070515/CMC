@@ -288,3 +288,4 @@ C:\Users\tshia\source\repos\PROG6212_CMCS\obj\Debug\net8.0\refint\PROG6212_CMCS.
 C:\Users\tshia\source\repos\PROG6212_CMCS\obj\Debug\net8.0\PROG6212_CMCS.pdb
 C:\Users\tshia\source\repos\PROG6212_CMCS\obj\Debug\net8.0\PROG6212_CMCS.genruntimeconfig.cache
 C:\Users\tshia\source\repos\PROG6212_CMCS\obj\Debug\net8.0\ref\PROG6212_CMCS.dll
+C:\Users\tshia\source\repos\PROG6212_CMCS\obj\Debug\net8.0\PROG6212_CMCS.sourcelink.json

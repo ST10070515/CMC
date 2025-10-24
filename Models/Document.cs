@@ -10,12 +10,12 @@ namespace PROG6212_CMCS.Models
 
         // --- Foreign Key (Fixing CS1061 errors) ---
         public int ClaimID { get; set; } = 0;
-        public Claim Claim { get; set; } = new Claim();
+        public Claim? Claim { get; set; }
 
         // --- Data Properties ---
         public string FileName { get; set; } = "";
-        public string StoragePath { get; set; } = "";
-        public string FileType { get; set; } = "";
+        public string ContentType { get; set; } = "";
+        public byte[] FileData { get; set; } = [];
 
     }
 }
