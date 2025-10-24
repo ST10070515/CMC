@@ -1,92 +1,101 @@
-﻿@model PROG6212_CMCS.Models.ViewModels.ProgrammeCoordinatorDashboardViewModel
-@* Set the model type at the top of the view *@
-
-<div class="container mt-4">
-    <h1>Programme Coordinator Dashboard</h1>
-
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <h2>Claims Awaiting Your Review (@Model.ClaimsForReview.Count)</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Claim ID</th>
-                        <th scope="col">Lecturer</th>
-                        <th scope="col">Date Submitted</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @* REPLACING HARDCODED ROWS WITH DB DATA *@
-                    @foreach (var claim in Model.ClaimsForReview)
-                    {
-                        <tr>
-                            @*<td>@claim.ClaimID</td>
-                            <td>@claim.Lecturer.FirstName @claim.Lecturer.LastName</td>*@
-                            <td>@claim.SubmissionDate.ToShortDateString()</td>
-                            <td>@claim.ClaimAmount.ToString("C")</td>
-                            <td>
-                                <a href="@Url.Action("ApproveClaim", "ProgrammeCoordinator", new { id = claim.ClaimID })" class="btn btn-success btn-sm">Approve</a>
-                                <a href="@Url.Action("RejectClaim", "ProgrammeCoordinator", new { id = claim.ClaimID })" class="btn btn-danger btn-sm">Reject</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            @if (!Model.ClaimsForReview.Any())
-            {
-                <p>No claims currently awaiting Programme Coordinator review.</p>
-            }
-        </div>
-    </div>
-    @* ... rest of the view content ... *@
-</div>
-
-@*model PROG6212_CMCS.Models.Claim  
-@* Views/ProgrammeCoordinator/Dashboard.cshtml *@
-@*{
-    ViewData["Title"] = "Programme Coordinator Dashboard";
+﻿@model PROG6212_CMCS.Models.ViewModels.DashboardData
+@{
+    ViewData["Title"] = "Program Coordinator Dashboard";
 }
 
+<!-- Main Content -->
 <div class="container mt-4">
-    <h1>Programme Coordinator Dashboard</h1>
-
-    <!-- Pending Claims Section -->
+    <!-- Summary Cards -->
     <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Rejected Claims</h5>
+                    <p class="card-text display-4">@Model.rejectedClaims</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Approved Claims</h5>
+                    <p class="card-text display-4">@Model.approvedClaims</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Claims</h5>
+                    <p class="card-text display-4">@Model.pendingClaims</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Claims Table -->
+    <div class="row">
         <div class="col-md-12">
-            <h2>Pending Claims</h2>
+            <h2>Recent Claims</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Claim ID</th>
-                        <th scope="col">Lecturer</th>
                         <th scope="col">Date Submitted</th>
+                        <th scope="col">Course</th>
                         <th scope="col">Amount</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>John Doe</td>
-                        <td>2025-10-15</td>
-                        <td>$500</td>
-                        <td>
-                            <a href="@Url.Action("ApproveClaim", "ProgrammeCoordinator", new { id = "001" })" class="btn btn-success btn-sm">Approve</a>
-                            <a href="@Url.Action("RejectClaim", "ProgrammeCoordinator", new { id = "001" })" class="btn btn-danger btn-sm">Reject</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>002</td>
-                        <td>Jane Smith</td>
-                        <td>2025-10-14</td>
-                        <td>$300</td>
-                        <td>
-                            <a href="@Url.Action("ApproveClaim", "ProgrammeCoordinator", new { id = "002" })" class="btn btn-success btn-sm">Approve</a>
-                            <a href="@Url.Action("RejectClaim", "ProgrammeCoordinator", new { id = "002" })" class="btn btn-danger btn-sm">Reject</a>
-                        </td>
-                    </tr>
+
+                    @if (Model.claims != null)
+                    {
+                        @foreach (var claim in Model.claims)
+                        {
+                            <tr>
+                                <td>@claim.ClaimID</td>
+                                <td>@claim.SubmissionDate</td>
+                                <td>@claim.CourseName</td>
+                                <td>R @claim.ClaimAmount</td>
+
+                                @if (claim.ClaimStatus == ClaimStatus.PENDING)
+                                {
+                                    <td> Pending</td>
+                                }
+                                else if (claim.ClaimStatus == ClaimStatus.APPROVED)
+                                {
+                                    <td> Approved</td>
+                                }
+                                else if (claim.ClaimStatus == ClaimStatus.REJECTED)
+                                {
+                                    <td> Rejected</td>
+                                }
+
+                                <form asp-controller="AcademicManager" method="post">
+                                <td>
+                                    <button asp-action="ApproveClaim"
+                                            asp-controller="AcademicManager"
+                                            asp-route-userId="@ViewBag.userId"
+                                            asp-route-claimId="@claim.ClaimID"
+                                            type="submit"
+                                            class="btn btn-success">
+                                        Approve
+                                    </button>
+                                    <button asp-action="RejectClaim"
+                                            asp-controller="AcademicManager"
+                                            asp-route-userId="@ViewBag.userId"
+                                            asp-route-claimId="@claim.ClaimID"
+                                            type="submit"
+                                            class="btn btn-danger">
+                                        Reject
+                                    </button>
+                                </td>
+                                </form>
+                            </tr>
+                        }
+                    }
                 </tbody>
             </table>
         </div>
@@ -96,16 +105,12 @@
     <div class="row mt-3">
         <div class="col-md-12">
             <div class="d-flex justify-content-end gap-2">
-                <a href="@Url.Action("Logout", "Account")" class="btn btn-danger">Logout</a>
+                <a href="@Url.Action("Login", "Account", new { userId = ViewBag.userId })" class="btn btn-danger">Logout</a>
             </div>
         </div>
     </div>
 </div>
 
-@section Scripts {
-    <script>
-        $(document).ready(function() {
-            console.log("Programme Coordinator Dashboard loaded");
-        });
-    </script>
-}*@
+
+
+

@@ -112,7 +112,7 @@ app.UseRouting();
 // -------------------------------------------------------------
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 // -------------------------------------------------------------
 // 7?? (Optional) Auto-seed roles and admin accounts at startup

@@ -7,7 +7,7 @@
 <h2>Login</h2>
 
 <form asp-action="Login" method="post">
-
+    <h3>💼 Welcome to Contract Monthly Claims 💼</h3>
     <div class="form-group">
         <label asp-for="Email"></label>
         <input asp-for="Email" class="form-control" />
@@ -23,6 +23,7 @@
         <input asp-for="RememberMe" />
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
+    <a asp-controller="Account" asp-action="Register" class="btn btn-primary" style="margin-right:0.2cm">Register</a>
 </form>
 
 @if (!ViewData.ModelState.IsValid)
