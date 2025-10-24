@@ -42,3 +42,7 @@ button{
     text-align:center
 }
 
+.panel{
+    display:block;
+    margin: 0 auto;
+}

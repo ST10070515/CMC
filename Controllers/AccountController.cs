@@ -53,8 +53,8 @@ namespace PROG6212_CMCS
                 _context.MyUsers.Add(user);
                 _context.SaveChanges();
             }
-   
-            return View(model);
+
+            return RedirectToAction("login", "Account");
         }
 
 

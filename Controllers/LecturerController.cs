@@ -27,14 +27,22 @@ public class LecturerController : Controller
         ViewBag.userId = userId;
 
         // Open the view
-        return View();
+        return View(new SubmitClaimViewModel());
     }
 
     [HttpPost]
-    public IActionResult SubmitClaim(Claim model, [FromQuery] int userId, List<IFormFile> ClaimFiles)
+    public IActionResult SubmitClaim(SubmitClaimViewModel model, [FromQuery] int userId, List<IFormFile> ClaimFiles)
     {
         // Store the query param
         ViewBag.userId = userId;
+
+        // Validate file size
+        foreach (var file in ClaimFiles) {
+            if (file.Length > 634880) {
+                model.ErrorMessage = "File size exceeds 5MB";
+                return View(model);
+            }
+        }
 
         // Process request 
         var claim = new Claim
@@ -76,8 +84,8 @@ public class LecturerController : Controller
             }
         }
 
-        // Add a success message
-        return View(model);
+     
+        return RedirectToAction("Dashboard", "Lecturer", new { userId});
     }
 
     [HttpGet]
