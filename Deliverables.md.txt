@@ -16,4 +16,4 @@
 [ ] 15. README.md with:
       - How to run (dotnet run)
       - Test accounts (Lecturer: lec1/lec1, Coordinator: coord1/coord1, …)
-      - Screenshot of each dashboard
+      - Screenshot of each dashboard   
