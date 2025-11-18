@@ -19,5 +19,9 @@ namespace PROG6212_CMCS.Models.ViewModels
         public int rejectedClaims { get; set; } = 0;
 
         public List<ClaimItem>? claims = null;
+
+        public int totalApprovedClaims { get; set; } = 0;
+        public decimal totalAmountPayable { get; set; } = 0;
+        public int totalLecturers { get; set; } = 0;
     }
 }

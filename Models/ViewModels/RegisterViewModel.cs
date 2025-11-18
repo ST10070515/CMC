@@ -30,7 +30,6 @@ namespace PROG6212_CMCS.Models.ViewModels
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        // This property will hold the selected Role Id
         [Required]
         [Display(Name = "Role")]
         public RoleName Role { get; set; }

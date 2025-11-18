@@ -37,17 +37,16 @@ namespace PROG6212_CMCS
         {
             if (ModelState.IsValid)
             {
-                // 1. Create the custom User object and populate all required fields
                 var user = new User
                 {
                     Email = model.Email,
-                    FirstName = model.FirstName,   // Set custom fields
-                    LastName = model.LastName,     // Set custom fields
-                    CellNumber = model.CellNumber, // Cell number
-                    Password = model.Password,     // User password
+                    FirstName = model.FirstName,   
+                    LastName = model.LastName,   
+                    CellNumber = model.CellNumber,
+                    Password = model.Password,     
                     Role = model.Role,
-                    IsActive = true,               // Set default state
-                    DateCreated = DateTime.Now     // Set creation date
+                    IsActive = true,               
+                    DateCreated = DateTime.Now    
                 };
 
                 _context.MyUsers.Add(user);
@@ -61,8 +60,6 @@ namespace PROG6212_CMCS
         [HttpGet]
         public IActionResult Login(string returnUrl = "")
         {
-            // Add returnUrl to ViewData to support external logins if needed, 
-            // but for now, just pass the URL.
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -75,7 +72,7 @@ namespace PROG6212_CMCS
             {
                 User user;
                 var loginSuccessful = false;
-                var quarableUser = _context.MyUsers.Where(u => u.Email == model.Email); // [select * from User where Email == model.Email]
+                var quarableUser = _context.MyUsers.Where(u => u.Email == model.Email); 
                 
                 if (quarableUser.Any() == false) {
 
@@ -91,10 +88,8 @@ namespace PROG6212_CMCS
                     }
                 }
 
-                // Process further
                 if (loginSuccessful)
                 {
-                    // Check roles and redirect to the respective dashboard
                     if (returnUrl == "")
                     {
                         if (user.Role == RoleName.Lecturer)
@@ -117,7 +112,7 @@ namespace PROG6212_CMCS
                     }
                     else
                     {
-                        return LocalRedirect(returnUrl ?? "~/"); // redirect user
+                        return LocalRedirect(returnUrl ?? "~/");
                     }
                 }
                 else
@@ -128,14 +123,6 @@ namespace PROG6212_CMCS
 
             return View(model);
         }
-
-        // Add Logout Action
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout()
-        {
-            //await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
-        }
+      
     }
 }

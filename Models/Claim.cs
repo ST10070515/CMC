@@ -14,12 +14,8 @@ namespace PROG6212_CMCS.Models
     {
         [Key]
         public int ClaimID { get; set; }
-
-        // --- Foreign Keys ---
         public int UserID { get; set; } 
         public User? User { get; set; } 
-
-        // --- Data Properties ---
         [Column(TypeName = "decimal(5,2)")]
         public decimal HoursWorked { get; set; }
 
