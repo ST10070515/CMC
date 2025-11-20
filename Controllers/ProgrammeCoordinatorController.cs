@@ -60,6 +60,7 @@ public class ProgrammeCoordinatorController : Controller
             data.allClaims = claimListModel.Count();
             data.pendingClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.PENDING).Count();
             data.approvedClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.APPROVED).Count();
+            data.rejectedClaims = claimListModel.Where(c => c.ClaimStatus == ClaimStatus.REJECTED).Count();
 
             foreach (var claim in claimListModel)
             {

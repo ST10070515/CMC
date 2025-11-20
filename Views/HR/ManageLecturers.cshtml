@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PROG6212_CMCS.Models.User>
+
+@{
+    ViewData["Title"] = "Manage Lecturers";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Lecturer Management (HR)</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Current Lecturer List</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Cellphone Number</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td>@user.FirstName</td>
+                                    <td>@user.LastName</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.CellNumber</td>
+                                    <td>
+                                        <a asp-action="EditLecturer" asp-route-userId="@user.UserID" class="btn btn-sm btn-warning">Edit</a>
+
+                                        <form asp-action="DeleteLecturer" asp-route-userId="@user.UserID" method="post"
+                                              onsubmit="return confirm('Are you sure you want to delete @user.FirstName @user.LastName?');"
+                                              style="display:inline;">
+                                            <input type="hidden" name="__RequestVerificationToken" value="@ViewContext.HttpContext.Request.Headers["__RequestVerificationToken"]" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <a asp-action="Dashboard" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to HR Dashboard
+            </a>
+        </div>
+    </div>
+</div>
